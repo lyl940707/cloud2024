@@ -29,6 +29,7 @@
         <module>gateway</module>
         <module>cloud</module>
         <module>outbound</module>
+        <module>batch</module>
     </modules>
     <dependencyManagement>
         <dependencies>
