@@ -1,0 +1,20 @@
+server:
+  port: 8072
+spring:
+  application:
+    name: cloud-service
+  profiles:
+    active: persist,redis
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 5000
+            readTimeout: 5000
+feign:
+  sentinel:
+    enabled: true

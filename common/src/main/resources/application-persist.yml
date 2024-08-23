@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    type: com.lyl.common.datasource.MyDataSource
+    druid:
+      #指定数据源
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1/cloud_2024?characterEncoding=utf-8&useUnicode=true&useSSL=false&allowMultiQueries=true&rewriteBatchedStatements=true&zeroDateTimeBehavior=CONVERT_TO_NULL&connectTimeout=3000&socketTimeout=3000&autoReconnect=TRUE
+      username: lyl
+      password: Yl940707
+      test-on-borrow: true
+      # 测厂商时改为false
+      # test-on-borrow: false
+      # 测厂商时增加为false
+      test-on-return: false
+      # 测厂商时增加为true
+      test-while-idle: true
+      validation-query: select 1
+      # 测厂商时增加为1
+      validation-query-timeout: 1
+      # 测厂商时增加为1000
+      time-between-eviction-runs-millis: 1000
+      # 测厂商时增加为400000
+      min-evictable-idle-time-millis: 400000
+      # 测厂商时增加为true
+      keep-alive: true
+      initial-size: 50
+      # 测厂商时修改为5
+      # initial-size: 5
+      max-active: 100
+      # 测厂商时修改为10
+      # max-active: 10
+      min-idle: 50
+      # 测厂商时修改为5
+      # min-idle: 5
+      max-wait: 6000
+      # 测厂商时修改为60000
+      # max-wait: 60000
+      # 测厂商时删除（注释掉）
+      remove-abandoned: true
+      remove-abandoned-timeout: 1800000
+    mybatis-plus:
+      #classpath后面写个星，是因为要扫描所有模块，如果不写它只会扫描当前模块，比如msmp依赖了data，msmp中无法访问data里的.xml
+      mapper-locations: classpath*:mapper/*Mapper.xml
+      type-aliases-package: com.lyl
+      global-config:
+        db-config:
+          id-type: none
+      configuration:
+        jdbc-type-for-null: null

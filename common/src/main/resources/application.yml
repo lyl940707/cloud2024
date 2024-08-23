@@ -1,0 +1,7 @@
+server:
+  port: 8074
+spring:
+  application:
+    name: common-service
+  profiles:
+    include: persist,redis

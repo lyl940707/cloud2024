@@ -1,0 +1,44 @@
+server:
+  port: 8071
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    include: persist,redis
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: first-route
+          uri: lb://cloud-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - name: Auth
+        - id: second-route
+          uri: lb://cloud-service
+          predicates:
+            - Path=/auth/**
+#            exclusions:
+#              - /auth/login
+          filters:
+            - name: Request
+            - name: Auth
+              args:
+                name: admin
+
+
+lyl:
+  notauth:
+    paths:
+      - /auth/login
+      - /auth/register
+
+
+

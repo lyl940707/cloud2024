@@ -1,0 +1,14 @@
+server:
+  port: 8073
+spring:
+  application:
+    name: outbound-service
+  profiles:
+    active: persist,redis
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+
+
