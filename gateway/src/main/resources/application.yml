@@ -29,6 +29,7 @@ spring:
 #              - /auth/login
           filters:
             - name: Request
+            - name: Request2
             - name: Auth
               args:
                 name: admin

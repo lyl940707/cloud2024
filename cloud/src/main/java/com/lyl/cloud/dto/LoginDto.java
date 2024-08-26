@@ -10,4 +10,6 @@ public class LoginDto {
     private String userId;
     @NotEmpty(message = "密码不能为空")
     private String password;
+    private String code;
+    private String code2;
 }

@@ -7,16 +7,16 @@ import org.springframework.web.server.ServerWebExchange;
 import java.util.LinkedHashMap;
 
 @Component
-public class RequestGatewayFilterFactory extends AbstractRequestBodyGatewayFilterFactory<RequestGatewayFilterFactory.Config> {
+public class Request2GatewayFilterFactory extends AbstractRequestBodyGatewayFilterFactory<Request2GatewayFilterFactory.Config> {
 
-    public RequestGatewayFilterFactory() {
+    public Request2GatewayFilterFactory() {
         super(Config.class);
     }
 
     @Override
     public LinkedHashMap<String, Object> modifyBody(Config config, LinkedHashMap<String, Object> originBody, ServerWebExchange exchange) {
         LinkedHashMap<String, Object> changeMap = new LinkedHashMap<>(originBody);
-        changeMap.put("code","01");
+        changeMap.put("code2","02");
         return changeMap;
     }
 
